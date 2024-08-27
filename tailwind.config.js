@@ -15,7 +15,9 @@ module.exports = {
           'hero-pattern': "url('/hero/hero.jpg')",
       },
       fontFamily: {
-        'almendra': ['"Almendra"', 'serif'],
+        allerta: ['var(--font-allerta-stencil)'],
+        anek: ['var(--font-anek-devanagari)'],
+        arya: ['var(--font-arya)', 'sans-serif'],
       },
     },
   },
