@@ -11,6 +11,11 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+          'custom-gradient': 'linear-gradient(90deg, #C80061 0%, #00759A 100%)',
+          'hero-pattern': "url('/hero/hero.jpg')",
+      },
+      fontFamily: {
+        'almendra': ['"Almendra"', 'serif'],
       },
     },
   },
