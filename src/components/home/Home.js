@@ -6,7 +6,6 @@ import Items from '../content/Items'
 const Home = () => {
   return (
     <div>
-      <Topbar />
       <Hero />
       <Items />
     </div>
