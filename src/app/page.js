@@ -1,12 +1,11 @@
-import ThemeSwitcher from "@/components/buttons/ThemeSwitcher";
-import Home from "@/components/home/Home";
-import Image from "next/image";
+import React from 'react'
 
-export default function App() {
+function main() {
   return (
-    <main className="max-w-6xl mx-auto p-4">
-      <Home />
-     <h1 className="text-4xl font-bold">Hello World</h1>
-    </main>
-  );
+    <div className='flex justify-center items-center font-serif text-4xl font-bold'>
+      This is the home page
+    </div>
+  )
 }
+
+export default main
