@@ -13,6 +13,7 @@ const Items = () => {
           content={section.content}
           image={section.image}
           buttonText={section.buttonText}
+          link={section.link}
           reverse={index % 2 !== 0}
         />
       ))}

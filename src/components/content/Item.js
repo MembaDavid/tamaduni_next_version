@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { Allerta_Stencil, Anek_Devanagari, Arya } from 'next/font/google';
+import Link from 'next/link';
 
 // Import the font with specific configurations
 const allertaStencil = Allerta_Stencil({
@@ -21,7 +22,7 @@ const arya = Arya({
   display: 'swap', // Optional: control how the font is displayed
 });
 
-const Item = ({ title, content, image, buttonText, reverse }) => {
+const Item = ({ title, content, image, buttonText, reverse, link='#' }) => {
   return (
     <div
       className={`flex flex-col-reverse md:flex-row items-center justify-between md:mb-12 md:h-[500px]
@@ -37,9 +38,10 @@ const Item = ({ title, content, image, buttonText, reverse }) => {
           {content}
         </p>
         <div className="flex justify-center md:justify-start">
-          <button className={`font-bold font-arya text-3xl px-6 py-3 rounded transition duration-300 ${arya.className}`}>
+          <Link href={link}
+           className={`font-bold font-arya text-3xl px-6 py-3 rounded transition duration-300 ${arya.className}`}>
             {buttonText}
-          </button>
+          </Link>
         </div>
       </div>
 
