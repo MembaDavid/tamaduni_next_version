@@ -1,8 +1,10 @@
+import Home from '@/components/home/Home'
 import React from 'react'
 
 function main() {
   return (
-    <div className='flex justify-center items-center font-serif text-4xl font-bold'>
+    <div className="max-w-6xl mx-auto p-4">
+      <Home />
       This is the home page
     </div>
   )
