@@ -5,7 +5,6 @@ function main() {
   return (
     <div className="">
       <Home />
-      This is the home page
     </div>
   )
 }
