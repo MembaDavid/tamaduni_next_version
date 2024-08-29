@@ -2,6 +2,9 @@ import React from 'react'
 import { FaImages, FaGlobe, FaLocationDot } from "react-icons/fa6";
 
 function Subheader(props) {
+	function count_1_to_10(){
+		
+	}
   return (
      <div className='flex justify-between items-center h-[109px] w-[978px] border border-black'>
 	 <div className='flex flex-col justify-between items-start'>
@@ -14,6 +17,7 @@ function Subheader(props) {
 		 <FaGlobe className='h-12 w-12 text-black' />
 		 <FaLocationDot className='h-12 w-12 text-black' />
 	 </div>
+	   
     </div>
   )
 }
