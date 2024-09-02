@@ -1,28 +1,34 @@
+"use client";
+import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
-'use client'
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+// Import Leaflet and custom marker images
+import L from "leaflet";
+import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import markerShadowPng from "leaflet/dist/images/marker-shadow.png";
 
-// Leaflet icons (required since the default icon paths need to be configured in Next.js)
-import L from 'leaflet';
-import markerIcon from 'leaflet/dist/images/marker-icon.png';
-import markerShadow from 'leaflet/dist/images/marker-shadow.png';
-
-// Fix for Leaflet's default icon paths (required for Next.js)
-let DefaultIcon = L.icon({
-    iconUrl: markerIcon,
-    shadowUrl: markerShadow,
-    iconAnchor: [12, 41],
-    popupAnchor: [0, -41]
+// Configure the default icon for Leaflet
+const DefaultIcon = L.icon({
+  iconUrl: markerIconPng.src, // Ensure the iconUrl points to the correct source
+  shadowUrl: markerShadowPng.src, // Ensure the shadowUrl points to the correct source
+  iconAnchor: [12, 41], // Adjust anchor as needed
+  popupAnchor: [0, -41], // Adjust popup anchor as needed
 });
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
 const MapComponent = () => {
   return (
-    <div className="w-full h-96"> {/* Adjust width and height as necessary */}
-      <MapContainer center={[0.3476, 32.5825]} zoom={13} scrollWheelZoom={false} className="w-full h-full">
+    <div className="w-full h-96">
+      {" "}
+      {/* Adjust width and height as necessary */}
+      <MapContainer
+        center={[0.3476, 32.5825]}
+        zoom={13}
+        scrollWheelZoom={false}
+        className="w-full h-full"
+      >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
