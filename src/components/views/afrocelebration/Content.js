@@ -2,11 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import {
-  FaGlobe,
-  FaMapMarkerAlt,
-  FaGalacticRepublic,
-} from "react-icons/fa";
+import { FaGlobe, FaMapMarkerAlt, FaGalacticRepublic } from "react-icons/fa";
 
 // Dynamic imports with SSR disabled
 const List = dynamic(() => import("./list/List"), { ssr: false });
@@ -14,7 +10,7 @@ const Gallery = dynamic(() => import("./Gallery"), { ssr: false });
 const Map = dynamic(() => import("./Map"), { ssr: false });
 
 const ContentSlider = () => {
-  const [selectedTab, setSelectedTab] = useState("list");
+  const [selectedTab, setSelectedTab] = useState("gallery");
 
   const handleTabClick = (tab) => {
     setSelectedTab(tab);
