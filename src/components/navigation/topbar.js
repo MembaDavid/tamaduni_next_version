@@ -23,7 +23,7 @@ const Topbar = () => {
       <nav className="flex justify-between items-center mb-2">
         <div className="flex flex-col items-center justify-between space-y-2">
           <Image
-            src={"/logo/tamaduni_logo 1.png"}
+            src={"/logo/tamaduni_logo.png"}
             alt="logo"
             width={50}
             height={50}
