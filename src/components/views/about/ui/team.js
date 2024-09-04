@@ -10,8 +10,7 @@ const Team = () => {
         </h2>
         <p className="text-lg md:text-xl text-gray-600 mb-8 animate-fade-in-up">
           Get to know the brilliant minds behind our success.
-        </p>
-        ]{" "}
+        </p>{" "}
         <div className="flex justify-center space-x-4 mb-12">
           <div className="w-16 h-16 md:w-20 md:h-20 bg-blue-100 rounded-full flex items-center justify-center">
             <svg
