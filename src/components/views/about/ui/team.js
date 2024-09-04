@@ -5,17 +5,13 @@ const Team = () => {
   return (
     <section className="relative bg-gradient-to-b from-gray-50 to-gray-100 py-16">
       <div className="max-w-4xl mx-auto text-center">
-        {/* Title with Animation */}
         <h2 className="text-4xl font-extrabold text-gray-800 mb-4 animate-fade-in-down">
           Meet the Team
         </h2>
-
-        {/* Subtitle */}
         <p className="text-lg md:text-xl text-gray-600 mb-8 animate-fade-in-up">
           Get to know the brilliant minds behind our success.
         </p>
-
-        {/* Illustration or Placeholder Icons */}
+        ]{" "}
         <div className="flex justify-center space-x-4 mb-12">
           <div className="w-16 h-16 md:w-20 md:h-20 bg-blue-100 rounded-full flex items-center justify-center">
             <svg
@@ -66,8 +62,6 @@ const Team = () => {
             </svg>
           </div>
         </div>
-
-        {/* Call-to-Action Button */}
         <Link
           href="/team"
           className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full text-lg hover:bg-blue-700 transition duration-300 shadow-lg hover:shadow-xl animate-fade-in-up"

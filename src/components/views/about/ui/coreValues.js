@@ -9,7 +9,6 @@ const CoreValues = () => {
           Our Core Values
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Core Value 1 - Integrity */}
           <div className="flex flex-col items-center group">
             <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-r from-purple-400 to-indigo-400 flex items-center justify-center overflow-hidden shadow-lg transition-transform transform group-hover:scale-105">
               <Image
@@ -28,7 +27,6 @@ const CoreValues = () => {
             </p>
           </div>
 
-          {/* Core Value 2 - Innovation */}
           <div className="flex flex-col items-center group">
             <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-r from-green-400 to-teal-400 flex items-center justify-center overflow-hidden shadow-lg transition-transform transform group-hover:scale-105">
               <Image
@@ -47,7 +45,6 @@ const CoreValues = () => {
             </p>
           </div>
 
-          {/* Core Value 3 - Teamwork */}
           <div className="flex flex-col items-center group">
             <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 flex items-center justify-center overflow-hidden shadow-lg transition-transform transform group-hover:scale-105">
               <Image

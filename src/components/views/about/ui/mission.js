@@ -6,7 +6,6 @@ const Mission = () => {
       {/* Vision */}
       <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
         <div className="w-16 h-16 mb-4 flex items-center justify-center bg-blue-500 rounded-full">
-          {/* Replace with appropriate icon */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="white"
@@ -31,10 +30,8 @@ const Mission = () => {
         </p>
       </div>
 
-      {/* Mission */}
       <div className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
         <div className="w-16 h-16 mb-4 flex items-center justify-center bg-green-500 rounded-full">
-          {/* Replace with appropriate icon */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="white"
