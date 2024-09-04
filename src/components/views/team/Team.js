@@ -2,7 +2,7 @@ import React from "react";
 import team from "./data.json";
 import Profile from "./Profile";
 
-const About = () => {
+const Team = () => {
   return (
     <div className="relative w-full max-w-6xl mx-auto p-6">
       <div className="absolute inset-0 top-0 bg-gray-200 h-32 md:h-48 z-0"></div>
@@ -26,4 +26,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Team;
