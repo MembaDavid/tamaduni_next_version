@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const Topbar = () => {
@@ -47,8 +48,15 @@ const Topbar = () => {
                 </button>
               </>
             ) : (
-              <div className="">
-                <button className="text-gray-600 hover:text-black">
+              <div className="flex space-x-4">
+                <Link href="/about" className="text-gray-600 hover:text-black">
+                  About
+                </Link>
+                <Link href="/team" className="text-gray-600 hover:text-black">
+                  Team
+                </Link>
+
+                <button className="sm:hidden text-gray-600 hover:text-black">
                   <svg
                     className="w-6 h-6"
                     fill="none"
