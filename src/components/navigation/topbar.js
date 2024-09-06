@@ -22,14 +22,17 @@ const Topbar = () => {
   return (
     <div>
       <nav className="flex justify-between items-center mb-2">
-        <div className="flex flex-col items-center justify-between space-y-2">
+        <Link
+          href="/"
+          className="flex flex-col items-center justify-between space-y-2"
+        >
           <Image
             src={"/logo/tamaduni_logo.png"}
             alt="logo"
-            width={50}
-            height={50}
+            width={60}
+            height={60}
           />
-        </div>
+        </Link>
         <h1
           className="text-xl font-bold"
           style={{ fontFamily: '"Inria Serif", serif' }}
