@@ -8,7 +8,7 @@ const Topbar = () => {
 
   // Map pathnames to titles
   const titleMap = {
-    "/migration": "Migration",
+    "/earlymobilityandmigration": "Migration",
     "/afrocelebration": "Afro Celebration",
     "/culturalmapping": "Cultural Mapping",
     "/digitalethnography": "Digital Ethnography",
