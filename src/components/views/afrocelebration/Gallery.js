@@ -4,7 +4,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const Gallery = () => {
   return (
-    <div className="relative w-full h-64 md:h-96">
+    <div className="relative w-full h-full">
       <Image
         src="/afrocelebration/afro.jpeg"
         alt="Main Content"

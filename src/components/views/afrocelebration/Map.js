@@ -20,7 +20,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 const MapComponent = () => {
   return (
-    <div className="w-full h-96">
+    <div className="w-full h-full">
       {" "}
       {/* Adjust width and height as necessary */}
       <MapContainer

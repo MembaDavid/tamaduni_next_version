@@ -74,7 +74,7 @@ const ContentSlider = () => {
               onClick={() => handleTabClick("map")}
             />
           </div>
-          <div className="hidden md:block mt-2">
+          <div className=" mt-2">
             <h2 className="text-lg font-bold">Film Industry</h2>
             <p className="text-sm text-gray-600 italic">Film Directing</p>
           </div>
@@ -82,7 +82,7 @@ const ContentSlider = () => {
         </div>
 
         {/* Dynamic Content Area */}
-        <div className="mt-2">
+        <div className="mt-2 h-96 md:h-[500px] lg:h-[700px]">
           {selectedTab === "gallery" && <Gallery />}
           {selectedTab === "list" && <List />}
           {selectedTab === "map" && <Map />}
