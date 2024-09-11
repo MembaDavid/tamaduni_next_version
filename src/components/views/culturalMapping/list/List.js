@@ -20,6 +20,10 @@ const List = () => {
     setIsModalOpen(false);
   };
 
+  const handleCloseDetails = () => {
+    setShowDetails(false);
+  };
+
   return (
     <div className="flex flex-col  h-full md:flex-row space-x-0 md:space-x-4">
       <section
@@ -50,10 +54,16 @@ const List = () => {
       </section>
 
       <section
-        className={` h-full ${
+        className={` h-full relative ${
           showDetails ? " hidden md:flex gap-4 w-full" : "hidden"
         }`}
       >
+        <button
+          className="absolute top-2 right-2 text-gray-600 text-2xl"
+          onClick={handleCloseDetails}
+        >
+          &times;
+        </button>
         <section className="w-full md:w-1/2">
           {selectedPerson.image?.map((img, index) => (
             <img

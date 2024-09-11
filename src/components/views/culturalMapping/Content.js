@@ -75,8 +75,8 @@ const ContentSlider = () => {
             />
           </div>
           <div className=" mt-2">
-            <h2 className="text-lg font-bold">Heritage Industry</h2>
-            <p className="text-sm text-gray-600 italic">Film Directing</p>
+            <h2 className="text-lg font-bold">Heritage Places</h2>
+            <p className="text-sm text-gray-600 italic">Museums</p>
           </div>
           <span className="hidden md:block text-xs text-gray-600">1/3</span>
         </div>
