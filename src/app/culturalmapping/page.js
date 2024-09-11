@@ -1,11 +1,8 @@
-import React from 'react'
+import ContentSlider from "@/components/views/culturalMapping/Content";
+import React from "react";
 
 function page() {
-  return (
-    <div>
-	 Cultural Mapping
-    </div>
-  )
+  return <ContentSlider />;
 }
 
-export default page
+export default page;
