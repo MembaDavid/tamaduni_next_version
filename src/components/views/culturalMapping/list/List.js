@@ -5,9 +5,11 @@ const List = () => {
   // State to track the selected person
   const [selectedPerson, setSelectedPerson] = useState(data[0]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
 
   const handleClick = (person) => {
     setSelectedPerson(person);
+    setShowDetails(true);
 
     if (window.innerWidth < 768) {
       setIsModalOpen(true);
@@ -19,8 +21,12 @@ const List = () => {
   };
 
   return (
-    <div className="flex flex-col h-full md:flex-row space-x-0 md:space-x-4">
-      <section className="w-full md:w-1/2">
+    <div className="flex flex-col  h-full md:flex-row space-x-0 md:space-x-4">
+      <section
+        className={`${
+          showDetails ? "flex md:hidden " : "flex"
+        } w-full md:w-1/2 flex-col`}
+      >
         {data.map((item, index) => (
           <div
             key={index}
@@ -43,17 +49,31 @@ const List = () => {
         ))}
       </section>
 
-      <section className="w-full md:w-1/2 h-full hidden md:flex">
-        <div className="h-full bg-white p-4 rounded-lg shadow-lg flex flex-col justify-start items-center">
+      <section
+        className={` h-full ${
+          showDetails ? " hidden md:flex gap-4 w-full" : "hidden"
+        }`}
+      >
+        <section className="w-full md:w-1/2">
+          {selectedPerson.image?.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={selectedPerson.name}
+              className="w-full  object-cover rounded-lg mb-4"
+            />
+          ))}
+        </section>
+        <section className="h-full w-full md:w-1/2 bg-gray-300 p-4 rounded-lg shadow-lg flex flex-col justify-start items-center space-y-4">
           <h3 className="text-lg font-bold mb-2">{selectedPerson.name}</h3>
-          <p className="text-sm text-gray-600 mb-2">
+          <h3 className="text-sm text-gray-600 mb-2">
             Location: {selectedPerson.location}
-          </p>
+          </h3>
           <h3 className="text-sm font-bold">Description</h3>
           <p className="text-sm text-gray-600 mb-4 text-center">
             {selectedPerson.description}
           </p>
-        </div>
+        </section>
       </section>
 
       {isModalOpen && (
