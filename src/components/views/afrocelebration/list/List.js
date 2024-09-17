@@ -64,7 +64,13 @@ const List = () => {
         >
           &times;
         </button>
-        <section className="w-full md:w-1/2">
+        <section
+          className="w-full md:w-1/2 overflow-auto [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:bg-gray-100
+  [&::-webkit-scrollbar-thumb]:bg-gray-300
+  dark:[&::-webkit-scrollbar-track]:bg-neutral-300
+  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+        >
           {selectedPerson.image?.map((img, index) => (
             <img
               key={index}

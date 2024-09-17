@@ -3,12 +3,12 @@ import data from "./data.json";
 
 const List = () => {
   // State to track the selected person
-  const [selectedPerson, setSelectedPerson] = useState(data[0]);
+  const [selectedMuseum, setSelectedMuseum] = useState(data[0]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
   const handleClick = (person) => {
-    setSelectedPerson(person);
+    setSelectedMuseum(person);
     setShowDetails(true);
 
     if (window.innerWidth < 768) {
@@ -35,7 +35,7 @@ const List = () => {
           <div
             key={index}
             className={`flex items-center bg-gray-100 p-2 rounded-lg mb-4 cursor-pointer ${
-              selectedPerson && selectedPerson.name === item.name
+              selectedMuseum && selectedMuseum.name === item.name
                 ? "bg-blue-100"
                 : ""
             }`}
@@ -55,7 +55,7 @@ const List = () => {
 
       <section
         className={` h-full relative ${
-          showDetails ? " hidden md:flex gap-4 w-full" : "hidden"
+          showDetails ? " hidden md:flex gap-2 w-full" : "hidden"
         }`}
       >
         <button
@@ -64,24 +64,30 @@ const List = () => {
         >
           &times;
         </button>
-        <section className="w-full md:w-1/2">
-          {selectedPerson.image?.map((img, index) => (
+        <section
+          className="w-full md:w-1/2 overflow-auto [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:bg-gray-100
+  [&::-webkit-scrollbar-thumb]:bg-gray-300
+  dark:[&::-webkit-scrollbar-track]:bg-neutral-300
+  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+        >
+          {selectedMuseum.image?.map((img, index) => (
             <img
               key={index}
               src={img}
-              alt={selectedPerson.name}
+              alt={selectedMuseum.name}
               className="w-full  object-cover rounded-lg mb-4"
             />
           ))}
         </section>
         <section className="h-full w-full md:w-1/2 bg-gray-300 p-4 rounded-lg shadow-lg flex flex-col justify-start items-center space-y-4">
-          <h3 className="text-lg font-bold mb-2">{selectedPerson.name}</h3>
+          <h3 className="text-lg font-bold mb-2">{selectedMuseum.name}</h3>
           <h3 className="text-sm text-gray-600 mb-2">
-            Location: {selectedPerson.location}
+            Location: {selectedMuseum.location}
           </h3>
           <h3 className="text-sm font-bold">Description</h3>
           <p className="text-sm text-gray-600 mb-4 text-center">
-            {selectedPerson.description}
+            {selectedMuseum.description}
           </p>
         </section>
       </section>
@@ -97,14 +103,14 @@ const List = () => {
               &times;
             </button>
             <h3 className="text-lg font-bold mb-2 text-center">
-              {selectedPerson.name}
+              {selectedMuseum.name}
             </h3>
             <p className="text-sm text-gray-600 mb-2 text-center">
-              Location: {selectedPerson.location}
+              Location: {selectedMuseum.location}
             </p>
             <h3 className="text-sm font-bold text-center">Description</h3>
             <p className="text-sm text-gray-600 mb-4 text-center">
-              {selectedPerson.description}
+              {selectedMuseum.description}
             </p>
           </div>
         </div>
