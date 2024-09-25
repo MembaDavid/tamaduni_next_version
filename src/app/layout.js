@@ -13,7 +13,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`max-w-[1600px] mx-auto p-0 md:p-4 ${inter.className}`}>
+      <body
+        className={`max-w-[1600px] mx-auto p-0 px-4 md:p-4 ${inter.className}`}
+      >
         <Topbar /> {/* The Topbar will appear on every page */}
         <div className="">{children}</div>
         <Footer />
