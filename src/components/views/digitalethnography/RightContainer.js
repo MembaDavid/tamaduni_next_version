@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { FaGalacticRepublic, FaGlobe, FaMapMarkerAlt } from "react-icons/fa";
-import MapComponent from "../afrocelebration/Map";
+import MapComponent from "../culturalMapping/Map";
+import Map from "./map/Map";
 
 const RightContainer = () => {
   const [selectedTab, setSelectedTab] = useState("gallery");
@@ -10,7 +11,7 @@ const RightContainer = () => {
   };
 
   return (
-    <section>
+    <section className="w-full">
       <div className="flex justify-between items-center mb-2">
         <div className=" mt-2">
           <h1 className="text-lg font-bold">Natural Catastrophes</h1>
@@ -71,7 +72,7 @@ const RightContainer = () => {
             </p>
           )
         }
-        {selectedTab === "map" && <MapComponent />}
+        {selectedTab === "map" && <Map />}
       </div>
     </section>
   );
