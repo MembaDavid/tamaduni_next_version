@@ -6,7 +6,7 @@ const WorkTogether = () => {
     <section className="bg-gray-800 text-white py-16 text-center px-5">
       <h2 className="text-3xl font-bold mb-8">Let's Work Together</h2>
       <p className="text-lg mb-6">
-        Whether you&#39;re looking for a partner in innovation or to join a team
+        Whether you`&#39;`re looking for a partner in innovation or to join a team
         that values creativity, collaboration, and community, we&#39;d love to
         hear from you!
       </p>
