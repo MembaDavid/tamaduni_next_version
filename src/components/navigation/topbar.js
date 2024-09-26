@@ -58,7 +58,12 @@ const Topbar = () => {
                 <Link href="/team" className="text-gray-600 hover:text-black">
                   Team
                 </Link>
-
+                <Link
+                  href="/contact"
+                  className="text-gray-600 hover:text-black"
+                >
+                  Contact
+                </Link>
                 <button className="sm:hidden text-gray-600 hover:text-black">
                   <svg
                     className="w-6 h-6"
