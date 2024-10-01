@@ -17,7 +17,7 @@ const Login = () => {
   return (
     <div className="h-screen w-full flex ">
       <LeftImage />
-      <section className="w-1/2 flex flex-col space-y-4 justify-center items-center">
+      <section className="w-full md:w-1/2 flex flex-col space-y-4 justify-center items-center">
         <h1 className="font-bold text-xl">Log In</h1>
         <section>
           <form
