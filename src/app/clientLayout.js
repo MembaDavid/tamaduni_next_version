@@ -8,7 +8,11 @@ import Footer from "@/components/footer/Footer";
 const ClientLayout = ({ children }) => {
   const pathname = usePathname();
 
-  const noTopbarFooterRoutes = ["/auth/login", "/auth/register"];
+  const noTopbarFooterRoutes = [
+    "/auth/login",
+    "/auth/register",
+    "/auth/forgotpassword",
+  ];
 
   const shouldHideTopbarFooter = noTopbarFooterRoutes.includes(pathname);
 
