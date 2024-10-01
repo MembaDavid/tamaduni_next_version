@@ -1,17 +1,12 @@
 import Link from "next/link";
 import React from "react";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
+import LeftImage from "./LeftImage";
 
 const Login = () => {
   return (
     <div className="h-screen w-full flex ">
-      <section className="w-1/2">
-        <img
-          src="/authentication/login.jpeg"
-          alt="login"
-          className="w-full h-full object-cover"
-        />
-      </section>
+      <LeftImage />
       <section className="w-1/2 flex flex-col space-y-4 justify-center items-center">
         <h1 className="font-bold text-xl">Log In</h1>
         <section>
@@ -31,7 +26,7 @@ const Login = () => {
             <button className="w-full bg-black text-white rounded-md py-2 px-4 hover:bg-gray-800 transition">
               Log In
             </button>
-            <Link className="underline" href="#">
+            <Link className="underline" href="/auth/forgotpassword" passHref>
               Forgot Password?
             </Link>
           </form>
@@ -51,12 +46,12 @@ const Login = () => {
 
             <p className="text-gray-600">
               Don't have an account?{" "}
-              <a
+              <Link
                 href="/signup"
                 className="text-blue-600 font-semibold hover:underline"
               >
                 Sign up
-              </a>
+              </Link>
             </p>
           </section>
         </section>
