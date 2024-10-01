@@ -1,5 +1,6 @@
 import React from "react";
 import LeftImage from "./LeftImage";
+import Link from "next/link";
 
 const ForgotPassword = () => {
   return (
@@ -18,9 +19,12 @@ const ForgotPassword = () => {
             placeholder="Phone No."
             className="rounded-md p-2 border border-gray-200"
           />
-          <button className="w-full bg-black text-white rounded-md py-2 px-4 hover:bg-gray-800 transition">
+          <Link
+            href="/auth/forgotpassword/otp"
+            className="w-full text-center bg-black text-white rounded-md py-2 px-4 hover:bg-gray-800 transition"
+          >
             Continue
-          </button>
+          </Link>
         </form>
       </section>
     </div>
