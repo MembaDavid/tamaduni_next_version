@@ -12,6 +12,7 @@ const ClientLayout = ({ children }) => {
     "/auth/login",
     "/auth/register",
     "/auth/forgotpassword",
+    "/auth/forgotpassword/otp",
   ];
 
   const shouldHideTopbarFooter = noTopbarFooterRoutes.includes(pathname);
