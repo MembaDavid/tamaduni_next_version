@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Topbar from "@/components/navigation/topbar";
-import Footer from "@/components/footer/Footer";
+import ClientLayout from "./clientLayout"; // Import the new ClientLayout component
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,12 +12,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`max-w-[1600px] mx-auto p-0 px-4 md:p-4 ${inter.className}`}
-      >
-        <Topbar /> {/* The Topbar will appear on every page */}
-        <div className="">{children}</div>
-        <Footer />
+      <body className={`max-w-[1600px] mx-auto p-0 px-4  ${inter.className}`}>
+        <ClientLayout>{children}</ClientLayout> {/* Wrap with ClientLayout */}
       </body>
     </html>
   );
