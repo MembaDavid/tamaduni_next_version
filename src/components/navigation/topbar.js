@@ -43,9 +43,12 @@ const Topbar = () => {
           <div className="flex flex-col items-center justify-between space-y-2">
             {pathname === "/" ? (
               <>
-                <button className="bg-custom-gradient text-white px-4 py-1 w-32">
+                <Link
+                  href="/auth/login"
+                  className="bg-custom-gradient text-white text-center px-4 py-1 w-32"
+                >
                   Login
-                </button>
+                </Link>
                 <button className="bg-custom-gradient text-white px-4 py-1 w-32">
                   Sign Up
                 </button>
