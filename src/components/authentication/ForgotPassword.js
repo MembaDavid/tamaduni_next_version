@@ -16,7 +16,7 @@ const ForgotPassword = () => {
           <label>Phone No.</label>
           <input
             type="phone"
-            placeholder="Phone No."
+            placeholder="+254..."
             className="rounded-md p-2 border border-gray-200"
           />
           <Link
