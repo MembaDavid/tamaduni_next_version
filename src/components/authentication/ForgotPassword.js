@@ -6,7 +6,7 @@ const ForgotPassword = () => {
   return (
     <div className="h-screen w-full flex ">
       <LeftImage />
-      <section className="w-1/2 flex flex-col space-y-4 justify-center items-center ">
+      <section className="w-full md:w-1/2 flex flex-col space-y-4 justify-center items-center ">
         <h1 className="font-bold text-xl">Forgot Password?</h1>
         <p className="w-1/2 text-center">
           Don&#39;t worry, it happens! Please enter the phone number and

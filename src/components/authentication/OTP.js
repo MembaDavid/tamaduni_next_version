@@ -57,7 +57,7 @@ const OTPPage = () => {
   return (
     <div className="h-screen w-full flex">
       <LeftImage />
-      <section className="w-1/2 h-screen  flex flex-col items-center justify-center">
+      <section className="w-full md:w-1/2 h-screen  flex flex-col items-center justify-center">
         <h1 className="font-bold text-2xl mb-4">Enter OTP</h1>
         <p className="mb-6 text-center w-1/2 text-gray-600">
           Enter the OTP sent to +254725374976

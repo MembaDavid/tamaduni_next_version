@@ -2,7 +2,7 @@ import React from "react";
 
 const LeftImage = () => {
   return (
-    <section className="w-1/2">
+    <section className="hidden md:block w-1/2">
       <img
         src="/authentication/login.jpeg"
         alt="login"
