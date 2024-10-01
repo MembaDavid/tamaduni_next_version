@@ -21,7 +21,7 @@ const Login = () => {
         <h1 className="font-bold text-xl">Log In</h1>
         <section>
           <form
-            className="flex flex-col space-y-4 border border-gray-200 p-4"
+            className="flex flex-col space-y-2 border border-gray-200 p-4"
             onSubmit={handleSubmit(onSubmit)}
           >
             <label>Email</label>
@@ -74,7 +74,7 @@ const Login = () => {
         </section>
         <section className="flex flex-col items-center space-y-4">
           <h1 className="font-bold text-xl">Or Log in with</h1>
-          <section className="flex flex-col space-y-4">
+          <section className="flex flex-col space-y-2">
             <button className="flex items-center justify-center  rounded-md py-2 px-4 hover:bg-gray-100 transition">
               <FaGoogle className="text-red-500 mr-2" size={20} />{" "}
               <span className="font-medium text-gray-700">Google</span>
