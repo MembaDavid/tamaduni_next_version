@@ -11,8 +11,8 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = async () => {
-    console.log("Logging in...");
+  const onSubmit = async (data) => {
+    console.log(data);
   };
   return (
     <div className="h-screen w-full flex ">
