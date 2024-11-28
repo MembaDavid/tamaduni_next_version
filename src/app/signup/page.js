@@ -1,9 +1,10 @@
 import React from 'react'
+import signup from '@/Components/views/signups/signup/Signup'
 
 function page() {
   return (
     <div>
-	 Early Mobility and Migration
+	 <Signup />
     </div>
   )
 }

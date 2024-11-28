@@ -1,11 +1,14 @@
-import React from 'react'
+import DEContent from "@/Components/views/civilization/Content";
+import DETopbar from "@/Components/views/civilization/DETopbar";
+import React from "react";
 
 function page() {
   return (
     <div>
-	 African Civilization
+      <DETopbar />
+      <DEContent />
     </div>
-  )
+  );
 }
 
-export default page
+export default page;
