@@ -1,10 +1,9 @@
 import React from 'react'
-import SignUp from '@/Components/views/signups/signup/SignUp'
-
+import OTPRequestPage from '@/Components/views/signups/otp/otp'
 function page() {
   return (
     <div>
-	    <SignUp />
+	 <OTPRequestPage />
     </div>
   )
 }
