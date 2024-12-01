@@ -1,11 +1,14 @@
-import React from 'react'
+import CivilizationTopbar from "@/components/views/civilization/CivilizationTopbar";
+import MigrationContent from "@/components/views/migration/Content";
+import React from "react";
 
 function page() {
   return (
-    <div>
-	 Early Mobility and Migration
-    </div>
-  )
+    <>
+      <CivilizationTopbar />
+      <MigrationContent />
+    </>
+  );
 }
 
-export default page
+export default page;
