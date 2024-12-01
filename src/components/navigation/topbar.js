@@ -41,7 +41,7 @@ const Topbar = () => {
           </div>
         </Link>
         <h1
-          className="text-xl font-bold"
+          className="text-xl font-bold lg:hidden"
           style={{ fontFamily: '"Inria Serif", serif' }}
         >
           {title}
@@ -99,6 +99,16 @@ const Topbar = () => {
             }`}
           >
             Civilization
+          </Link>
+          <Link
+            href="/earlymobilityandmigration"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/earlymobilityandmigration")
+                ? "font-bold text-black"
+                : ""
+            }`}
+          >
+            Migration
           </Link>
           <Link
             href="/about"
@@ -189,7 +199,17 @@ const Topbar = () => {
           >
             Civilization
           </Link>
-
+          <Link
+            href="/earlymobilityandmigration"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/earlymobilityandmigration")
+                ? "font-bold text-black"
+                : ""
+            }`}
+            onClick={toggleMenu}
+          >
+            Migration
+          </Link>
           <Link
             href="/about"
             className={`text-gray-600 hover:text-black ${
