@@ -47,7 +47,7 @@ const Topbar = () => {
           {title}
         </h1>
         <button
-          className="sm:hidden text-gray-600 hover:text-black"
+          className="lg:hidden text-gray-600 hover:text-black"
           onClick={toggleMenu}
         >
           <svg
@@ -67,7 +67,7 @@ const Topbar = () => {
         </button>
 
         {/* Desktop Links */}
-        <div className="hidden sm:flex space-x-4 items-center">
+        <div className="hidden lg:flex space-x-4 items-center">
           <Link
             href="/afrocelebration"
             className={`text-gray-600 hover:text-black ${
@@ -141,7 +141,7 @@ const Topbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center space-y-6 py-6 sm:hidden transition-transform duration-300 ease-in-out z-40">
+        <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center space-y-6 py-6 lg:hidden transition-transform duration-300 ease-in-out z-40">
           <Link
             href="/afrocelebration"
             className={`text-gray-600 hover:text-black ${
