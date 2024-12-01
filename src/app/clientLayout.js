@@ -10,7 +10,7 @@ const ClientLayout = ({ children }) => {
 
   const noTopbarFooterRoutes = [
     "/auth/login",
-    "/auth/register",
+    "/auth/signup",
     "/auth/forgotpassword",
     "/auth/forgotpassword/otp",
   ];
