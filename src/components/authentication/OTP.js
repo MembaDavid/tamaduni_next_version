@@ -93,7 +93,7 @@ const OTPPage = () => {
           <p className="mt-4 text-red-600">OTP has expired, please resend.</p>
         )}
 
-        <p className="mt-4 text-gray-600">Didn't receive the OTP? </p>
+        <p className="mt-4 text-gray-600">Didn&apos;t receive the OTP? </p>
         <button
           className="text-blue-600 font-semibold hover:underline"
           onClick={handleResendOTP}
