@@ -1,11 +1,14 @@
-import React from 'react'
+import CivilizationTopbar from "@/components/views/civilization/CivilizationTopbar";
+import CivilizationContent from "@/components/views/civilization/Content";
+import React from "react";
 
 function page() {
   return (
     <div>
-	 African Civilization
+      <CivilizationTopbar />
+      <CivilizationContent />
     </div>
-  )
+  );
 }
 
-export default page
+export default page;
