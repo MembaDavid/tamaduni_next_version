@@ -1,10 +1,14 @@
 "use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import useAuth from "@/components/authentication/useAuth"; // Assuming this is your authentication hook
 
 const Topbar = () => {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { user, logout } = useAuth(); // Use authentication hook to get user state
 
   // Map pathnames to titles
   const titleMap = {
@@ -13,25 +17,28 @@ const Topbar = () => {
     "/culturalmapping": "Cultural Mapping",
     "/digitalethnography": "Digital Ethnography",
     "/civilization": "Civilization",
-    // Add more routes as needed
   };
 
   // Get the title based on the current pathname
-  const title = titleMap[pathname] || "TAMADUNI"; // Default title if pathname doesn't match
+  const title = titleMap[pathname] || "TAMADUNI";
+
+  // Toggle mobile menu
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const isActive = (route) => pathname === route;
 
   return (
-    <div>
-      <nav className="flex justify-between items-center mb-2">
-        <Link
-          href="/"
-          className="flex flex-col items-center justify-between space-y-2"
-        >
-          <Image
-            src={"/logo/tamaduni_logo.png"}
-            alt="logo"
-            width={60}
-            height={60}
-          />
+    <div className="relative">
+      <nav className="flex justify-between items-center py-4 px-6 shadow-md bg-white z-50">
+        <Link href="/">
+          <div className="flex flex-col items-center justify-between">
+            <Image
+              src={"/logo/tamaduni_logo.png"}
+              alt="logo"
+              width={60}
+              height={60}
+            />
+          </div>
         </Link>
         <h1
           className="text-xl font-bold"
@@ -39,74 +46,135 @@ const Topbar = () => {
         >
           {title}
         </h1>
-        <section className="hidden sm:block">
-          <div className="flex flex-col items-center justify-between space-y-2">
-            {pathname === "/" ? (
-              <>
-                <Link
-                  href="/auth/login"
-                  className="bg-custom-gradient text-white text-center px-4 py-1 w-32"
-                >
-                  Login
-                </Link>
-                <button className="bg-custom-gradient text-white px-4 py-1 w-32">
-                  Sign Up
-                </button>
-              </>
-            ) : (
-              <div className="flex space-x-4">
-                <Link href="/about" className="text-gray-600 hover:text-black">
-                  About
-                </Link>
-                <Link href="/team" className="text-gray-600 hover:text-black">
-                  Team
-                </Link>
-                <Link
-                  href="/contact"
-                  className="text-gray-600 hover:text-black"
-                >
-                  Contact
-                </Link>
-                <button className="sm:hidden text-gray-600 hover:text-black">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                </button>
-              </div>
-            )}
-          </div>
-        </section>
+        <button
+          className="sm:hidden text-gray-600 hover:text-black"
+          onClick={toggleMenu}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
 
-        <div className="sm:hidden">
-          <button className="text-gray-600 hover:text-black">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+        {/* Desktop Links */}
+        <div className="hidden sm:flex space-x-4 items-center">
+          <Link
+            href="/about"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/about") ? "font-bold text-black" : ""
+            }`}
+          >
+            About
+          </Link>
+          <Link
+            href="/team"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/team") ? "font-bold text-black" : ""
+            }`}
+          >
+            Team
+          </Link>
+          <Link
+            href="/contact"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/contact") ? "font-bold text-black" : ""
+            }`}
+          >
+            Contact
+          </Link>
+          {user ? (
+            <button onClick={logout} className="text-red-300 hover:text-black">
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link
+                href="/auth/login"
+                className="text-gray-600 hover:text-black"
+              >
+                Login
+              </Link>
+              <Link
+                href="/auth/signup"
+                className="text-gray-600 hover:text-black"
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
       </nav>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center space-y-6 py-6 sm:hidden transition-transform duration-300 ease-in-out z-40">
+          <Link
+            href="/about"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/about") ? "font-bold text-black" : ""
+            }`}
+            onClick={toggleMenu}
+          >
+            About
+          </Link>
+          <Link
+            href="/team"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/team") ? "font-bold text-black" : ""
+            }`}
+            onClick={toggleMenu}
+          >
+            Team
+          </Link>
+          <Link
+            href="/contact"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/contact") ? "font-bold text-black" : ""
+            }`}
+            onClick={toggleMenu}
+          >
+            Contact
+          </Link>
+          {user ? (
+            <button
+              onClick={() => {
+                logout();
+                toggleMenu();
+              }}
+              className="text-red-300 hover:text-black"
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link
+                href="/auth/login"
+                className="text-gray-600 hover:text-black"
+                onClick={toggleMenu}
+              >
+                Login
+              </Link>
+              <Link
+                href="/auth/signup"
+                className="text-gray-600 hover:text-black"
+                onClick={toggleMenu}
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };
