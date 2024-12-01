@@ -1,28 +1,41 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { Allerta_Stencil, Anek_Devanagari, Arya } from "next/font/google";
 import Link from "next/link";
+import useAuth from "@/components/authentication/useAuth";
+import { useRouter } from "next/navigation";
 
-// Import the font with specific configurations
 const allertaStencil = Allerta_Stencil({
   subsets: ["latin"],
-  weight: "400", // Specify the weight if needed (e.g., '400')
-  display: "swap", // Optional: control how the font is displayed
+  weight: "400",
+  display: "swap",
 });
 
 const anekDevanagari = Anek_Devanagari({
   subsets: ["latin"],
-  weight: "400", // Specify the weight if needed (e.g., '400')
-  display: "swap", // Optional: control how the font is displayed
+  weight: "400",
+  display: "swap",
 });
 
 const arya = Arya({
   subsets: ["latin"],
-  weight: "400", // Specify the weight if needed (e.g., '400')
-  display: "swap", // Optional: control how the font is displayed
+  weight: "400",
+  display: "swap",
 });
 
 const Item = ({ title, content, image, buttonText, reverse, link = "#" }) => {
+  const { user } = useAuth();
+  const router = useRouter();
+
+  const handleButtonClick = () => {
+    if (!user) {
+      router.push("/auth/login");
+    } else {
+      router.push(link);
+    }
+  };
+
   return (
     <div
       className={`flex flex-col-reverse md:flex-row items-center justify-between md:mb-12 md:h-[500px]
@@ -40,17 +53,17 @@ const Item = ({ title, content, image, buttonText, reverse, link = "#" }) => {
           {content}
         </p>
         <div className="flex justify-center md:justify-start">
-          <Link
-            href={link}
+          <button
+            onClick={handleButtonClick}
             className={`font-bold font-arya text-2xl sm:text-3xl px-6 py-3 rounded transition duration-300 ${arya.className}`}
           >
             {buttonText}
-          </Link>
+          </button>
         </div>
       </div>
 
       {/* Adjusted Image Section */}
-      <div className=" w-full sm:w-3/4 md:w-1/2 flex justify-center p-4 h-80 md:h-full">
+      <div className="w-full sm:w-3/4 md:w-1/2 flex justify-center p-4 h-80 md:h-full">
         <div className="relative w-full h-full">
           <Image
             src={image}
