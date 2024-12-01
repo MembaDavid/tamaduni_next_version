@@ -93,6 +93,14 @@ const Topbar = () => {
             Digital Ethnography
           </Link>
           <Link
+            href="/civilization"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/civilization") ? "font-bold text-black" : ""
+            }`}
+          >
+            Civilization
+          </Link>
+          <Link
             href="/about"
             className={`text-gray-600 hover:text-black ${
               isActive("/about") ? "font-bold text-black" : ""
@@ -170,6 +178,16 @@ const Topbar = () => {
             onClick={toggleMenu}
           >
             Digital Ethnography
+          </Link>
+
+          <Link
+            href="/civilization"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/civilization") ? "font-bold text-black" : ""
+            }`}
+            onClick={toggleMenu}
+          >
+            Civilization
           </Link>
 
           <Link
