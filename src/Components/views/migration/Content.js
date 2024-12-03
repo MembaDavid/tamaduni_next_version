@@ -1,10 +1,43 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import LeftContainer from "./LeftContainer";
 import RightContainer from "./RightContainer";
 import useMobilityData from "@/hooks/mobility";
+import { base_url } from "@/hooks/urls";
+import axios from "axios";
 
 const MigrationContent = () => {
-  const { drivers, groups } = useMobilityData();
+  const [drivers, setDrivers] = useState([]);
+  const [groups, setGroups] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${base_url}mobility/search`);
+        setDrivers(response.data.drivers || []);
+        setGroups(response.data.groups || []);
+        setIsError(false); // Reset error if the request is successful
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures this runs only on mount
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (isError) {
+    return <p>Error loading data!</p>;
+  }
+
   return (
     <div className="flex flex-col md:flex-row space-x-6">
       <section className="w-full md:w-1/4">
