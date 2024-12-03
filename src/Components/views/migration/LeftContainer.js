@@ -1,6 +1,6 @@
 import React from "react";
 
-const LeftContainer = () => {
+const LeftContainer = ({ data }) => {
   return (
     <div className="flex flex-col gap-4  w-full mb-4">
       <section className="flex flex-col gap-4 items-center bg-gray-200 p-6 rounded-lg">
