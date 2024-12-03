@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import LeftContainer from "./LeftContainer";
 import RightContainer from "./RightContainer";
-import useMobilityData from "@/hooks/mobility";
 import { base_url } from "@/hooks/urls";
 import axios from "axios";
 
