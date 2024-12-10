@@ -17,6 +17,7 @@ const MigrationContent = () => {
         const response = await axios.get(`${base_url}mobility/search`);
         setDrivers(response.data.drivers || []);
         setGroups(response.data.groups || []);
+        console.log("data", response.data);
         setIsError(false); // Reset error if the request is successful
       } catch (error) {
         console.error("Error fetching data:", error);
