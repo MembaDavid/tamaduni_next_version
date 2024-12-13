@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import React from "react";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
@@ -15,22 +16,27 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const { login, loading, error } = useAuth();
-
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    await login(data.email, data.password);
-    if (!error) {
-      router.push("/");
-    } else {
-      console.error("Login failed:", error);
+    try {
+      const response = await login(data.email, data.password);
+
+      if (response.success) {
+        router.push("/");
+      } else {
+        console.error("Invalid Credentials:", response.message);
+      }
+    } catch (err) {
+      console.error("Unexpected error:", err.message);
     }
   };
 
   const fillTestCredentials = () => {
-    setValue("email", "test@user.com"); // Set the test email
-    setValue("password", "password123"); // Set the test password
+    setValue("email", "test@user.com");
+    setValue("password", "password123");
   };
+
   return (
     <div className="h-screen w-full flex">
       <LeftImage />
@@ -41,8 +47,9 @@ const Login = () => {
             className="flex flex-col space-y-2 border border-gray-200 p-4"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
+              id="email"
               className="rounded-md p-2 border border-gray-200"
               type="email"
               placeholder="Email"
@@ -59,8 +66,9 @@ const Login = () => {
                 {errors.email.message}
               </span>
             )}
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <input
+              id="password"
               type="password"
               placeholder="Password"
               className="rounded-md p-2 border border-gray-200"
@@ -92,8 +100,9 @@ const Login = () => {
             >
               Use Test Credentials
             </button>
-
-            <p className="text-red-500 text-sm">{error}</p>
+            {error && (
+              <p className="text-red-500 text-sm">{error}</p>
+            )}
             <Link className="underline" href="/auth/forgotpassword">
               Forgot Password?
             </Link>
