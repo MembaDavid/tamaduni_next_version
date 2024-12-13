@@ -1,13 +1,13 @@
 import CivilizationTopbar from "@/components/views/civilization/CivilizationTopbar";
-import CivilizationContent from "@/components/views/civilization/Content";
+import MigrationContent from "@/components/views/migration/Content";
 import React from "react";
 
 function page() {
   return (
-    <div>
+    <>
       <CivilizationTopbar />
-      <CivilizationContent />
-    </div>
+      <MigrationContent />
+    </>
   );
 }
 

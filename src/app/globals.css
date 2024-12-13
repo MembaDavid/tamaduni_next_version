@@ -1,8 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arya:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arya:wght@400;700&display=swap");
 
 /* Default Light Theme */
 :root {
@@ -33,4 +33,27 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Customize scrollbar */
+section::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+section::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+section::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+section::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

@@ -41,13 +41,13 @@ const Topbar = () => {
           </div>
         </Link>
         <h1
-          className="text-xl font-bold"
+          className="text-xl font-bold lg:hidden"
           style={{ fontFamily: '"Inria Serif", serif' }}
         >
           {title}
         </h1>
         <button
-          className="sm:hidden text-gray-600 hover:text-black"
+          className="lg:hidden text-gray-600 hover:text-black"
           onClick={toggleMenu}
         >
           <svg
@@ -67,7 +67,49 @@ const Topbar = () => {
         </button>
 
         {/* Desktop Links */}
-        <div className="hidden sm:flex space-x-4 items-center">
+        <div className="hidden lg:flex space-x-4 items-center">
+          <Link
+            href="/afrocelebration"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/afrocelebration") ? "font-bold text-black" : ""
+            }`}
+          >
+            Afro Celebration
+          </Link>
+          <Link
+            href="/culturalmapping"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/culturalmapping") ? "font-bold text-black" : ""
+            }`}
+          >
+            Cultural Mapping
+          </Link>
+          <Link
+            href="/digitalethnography"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/digitalethnography") ? "font-bold text-black" : ""
+            }`}
+          >
+            Digital Ethnography
+          </Link>
+          <Link
+            href="/civilization"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/civilization") ? "font-bold text-black" : ""
+            }`}
+          >
+            Civilization
+          </Link>
+          <Link
+            href="/earlymobilityandmigration"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/earlymobilityandmigration")
+                ? "font-bold text-black"
+                : ""
+            }`}
+          >
+            Migration
+          </Link>
           <Link
             href="/about"
             className={`text-gray-600 hover:text-black ${
@@ -117,7 +159,57 @@ const Topbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center space-y-6 py-6 sm:hidden transition-transform duration-300 ease-in-out z-40">
+        <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col items-center space-y-6 py-6 lg:hidden transition-transform duration-300 ease-in-out z-40">
+          <Link
+            href="/afrocelebration"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/afrocelebration") ? "font-bold text-black" : ""
+            }`}
+            onClick={toggleMenu}
+          >
+            Afro Celebration
+          </Link>
+
+          <Link
+            href="/culturalmapping"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/culturalmapping") ? "font-bold text-black" : ""
+            }`}
+            onClick={toggleMenu}
+          >
+            Cultural Mapping
+          </Link>
+
+          <Link
+            href="/digitalethnography"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/digitalethnography") ? "font-bold text-black" : ""
+            }`}
+            onClick={toggleMenu}
+          >
+            Digital Ethnography
+          </Link>
+
+          <Link
+            href="/civilization"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/civilization") ? "font-bold text-black" : ""
+            }`}
+            onClick={toggleMenu}
+          >
+            Civilization
+          </Link>
+          <Link
+            href="/earlymobilityandmigration"
+            className={`text-gray-600 hover:text-black ${
+              isActive("/earlymobilityandmigration")
+                ? "font-bold text-black"
+                : ""
+            }`}
+            onClick={toggleMenu}
+          >
+            Migration
+          </Link>
           <Link
             href="/about"
             className={`text-gray-600 hover:text-black ${

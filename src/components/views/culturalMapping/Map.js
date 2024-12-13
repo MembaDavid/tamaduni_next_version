@@ -6,17 +6,17 @@ import "leaflet/dist/leaflet.css";
 // Import Leaflet and custom marker images
 import L from "leaflet";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
-import markerShadowPng from "leaflet/dist/images/marker-shadow.png";
+// import markerShadowPng from "leaflet/dist/images/marker-shadow.png";
 
-// Configure the default icon for Leaflet
-const DefaultIcon = L.icon({
-  iconUrl: markerIconPng.src, // Ensure the iconUrl points to the correct source
-  shadowUrl: markerShadowPng.src, // Ensure the shadowUrl points to the correct source
-  iconAnchor: [12, 41], // Adjust anchor as needed
-  popupAnchor: [0, -41], // Adjust popup anchor as needed
-});
+// // Configure the default icon for Leaflet
+// const DefaultIcon = L.icon({
+//   iconUrl: markerIconPng.src, // Ensure the iconUrl points to the correct source
+//   shadowUrl: markerShadowPng.src, // Ensure the shadowUrl points to the correct source
+//   iconAnchor: [12, 41], // Adjust anchor as needed
+//   popupAnchor: [0, -41], // Adjust popup anchor as needed
+// });
 
-L.Marker.prototype.options.icon = DefaultIcon;
+// L.Marker.prototype.options.icon = DefaultIcon;
 
 const MapComponent = () => {
   return (

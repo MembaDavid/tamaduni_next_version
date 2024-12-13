@@ -16,13 +16,12 @@ const RightContainer = () => {
       <div className="flex justify-between items-center mb-2">
         <div className="mt-2">
           {/* Change the title and metadata */}
-          <h1 className="text-2xl font-bold">Civilization</h1>
+          <h1 className="text-2xl font-bold">Migration</h1>
           <p className="text-xl text-gray-600">
-            <strong>Group: </strong>Ancient Civilizations
+            <strong>Group: </strong>Global Migrations
           </p>
           <p className="text-xm text-gray-600 italic font-semibold">
-            <strong>Era: </strong>Mesopotamia and Ancient Egypt (3500 - 3000
-            BCE)
+            <strong>Era: </strong>Prehistoric to Modern Migrations
           </p>
         </div>
         <div className="flex space-x-2">
@@ -52,16 +51,18 @@ const RightContainer = () => {
           selectedTab === "gallery" && (
             <>
               <p className="text-center">
-                The development of early civilizations marked a significant
-                transition in human history. Mesopotamia, often regarded as the
-                &quot;cradle of civilization,&quot; witnessed the rise of
-                city-states, advancements in agriculture, and the creation of
-                the first writing system, cuneiform. Ancient Egypt, flourishing
-                along the Nile River, developed monumental architecture like
-                pyramids, intricate irrigation systems, and a centralized
-                government ruled by pharaohs. These civilizations laid the
-                foundation for complex societies, trade networks, and cultural
-                innovations that would influence generations to come.
+                Migration has been a defining characteristic of human history,
+                shaping societies, cultures, and economies across the globe.
+                Early human migrations were driven by the need for food, safety,
+                and favorable climates, spreading populations across continents
+                and giving rise to diverse civilizations. In the modern era,
+                migration often occurs due to economic opportunities, conflict,
+                and environmental changes. From the transatlantic migrations of
+                the 19th century to contemporary refugee crises, migration has
+                played a critical role in fostering cultural exchanges,
+                innovation, and global connectivity. Understanding migration
+                patterns helps us explore the roots of shared histories and the
+                complexities of human movement.
               </p>
               <Gallery />
             </>
