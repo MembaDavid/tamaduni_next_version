@@ -5,7 +5,8 @@ import React from "react";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import LeftImage from "./LeftImage";
 import { useForm } from "react-hook-form";
-import useAuth from "@/components/authentication/useAuth";
+// import useAuth from "@/components/authentication";
+import useAuth from "./useAuth";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
@@ -93,13 +94,13 @@ const Login = () => {
             >
               {loading ? "Logging in..." : "Log In"}
             </button>
-            <button
+            {/* <button
               type="button"
               onClick={fillTestCredentials}
               className="w-full bg-gray-200 text-black rounded-md py-2 px-4 hover:bg-gray-300 transition"
             >
               Use Test Credentials
-            </button>
+            </button> */}
             {error && (
               <p className="text-red-500 text-sm">{error}</p>
             )}
