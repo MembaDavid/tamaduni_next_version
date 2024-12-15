@@ -1,6 +1,20 @@
+"use client";
+
+import dynamic from "next/dynamic";
 import React from "react";
-import MapComponent from "../../afrocelebration/Map";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+
+const MapContainer = dynamic(
+  () =>
+    import("react-leaflet").then((mod) => {
+      return mod.MapContainer;
+    }),
+  { ssr: false }
+);
+const TileLayer = dynamic(() =>
+  import("react-leaflet").then((mod) => mod.TileLayer)
+);
+const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker));
+const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup));
 
 const Map = () => {
   const comm = [
@@ -13,19 +27,18 @@ const Map = () => {
     "Hausa-Fulani",
     "Hausa-Fulani",
   ];
+
   return (
     <div className="space-y-4">
       <section className="grid grid-cols-4 gap-4">
-        {comm.map((item, index) => {
-          return (
-            <button
-              className="p-2 bg-slate-400 text-white text-center hover:bg-slate-500 transition-all duration-300"
-              key={index}
-            >
-              <p>{item}</p>
-            </button>
-          );
-        })}
+        {comm.map((item, index) => (
+          <button
+            className="p-2 bg-slate-400 text-white text-center hover:bg-slate-500 transition-all duration-300"
+            key={index}
+          >
+            <p>{item}</p>
+          </button>
+        ))}
       </section>
       <section className="h-[500px]">
         <MapContainer

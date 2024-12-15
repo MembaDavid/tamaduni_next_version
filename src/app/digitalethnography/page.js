@@ -1,6 +1,12 @@
-import DEContent from "@/components/views/digitalethnography/Content";
+"use client";
 import DETopbar from "@/components/views/digitalethnography/DETopbar";
+import dynamic from "next/dynamic";
 import React from "react";
+
+const DEContent = dynamic(
+  () => import("@/components/views/digitalethnography/Content"),
+  { ssr: false }
+);
 
 function page() {
   return (

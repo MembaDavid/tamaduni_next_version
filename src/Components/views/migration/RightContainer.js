@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { FaGalacticRepublic, FaGlobe, FaMapMarkerAlt } from "react-icons/fa";
-import MapComponent from "../culturalMapping/Map";
 import Map from "./map/Map";
 import Gallery from "./Gallery";
 
@@ -15,7 +14,6 @@ const RightContainer = () => {
     <section className="w-full p-2 overflow-auto">
       <div className="flex justify-between items-center mb-2">
         <div className="mt-2">
-          {/* Change the title and metadata */}
           <h1 className="text-2xl font-bold">Migration</h1>
           <p className="text-xl text-gray-600">
             <strong>Group: </strong>Global Migrations

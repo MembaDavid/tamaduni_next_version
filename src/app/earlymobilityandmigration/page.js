@@ -1,6 +1,13 @@
+"use client";
 import CivilizationTopbar from "@/components/views/civilization/CivilizationTopbar";
-import MigrationContent from "@/components/views/migration/Content";
+import dynamic from "next/dynamic";
 import React from "react";
+
+//import MigrationContent and dissable ssr
+const MigrationContent = dynamic(
+  () => import("@/components/views/migration/Content"),
+  { ssr: false }
+);
 
 function page() {
   return (
