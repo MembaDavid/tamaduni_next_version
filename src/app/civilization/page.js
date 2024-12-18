@@ -1,5 +1,5 @@
-import CivilizationTopbar from "@/components/views/civilization/CivilizationTopbar";
-import CivilizationContent from "@/components/views/civilization/Content";
+import CivilizationTopbar from "@/Components/views/civilization/CivilizationTopbar";
+import CivilizationContent from "@/Components/views/civilization/Content";
 import React from "react";
 
 function page() {
