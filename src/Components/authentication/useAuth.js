@@ -1,30 +1,41 @@
 // /auth/useAuth.js
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import axios from "axios"; // Import axios for API requests
+import { base_url } from "@/hooks/urls";
+import { useRouter } from "next/navigation";
 
 const useAuth = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const router = useRouter();
 
-  // Simulate login with dummy data
+  // Login function with actual API call
   const login = async (email, password) => {
     setLoading(true);
     setError(null);
-    try {
-      // Simulate an API delay
-      await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      if (email === "test@user.com" && password === "password123") {
-        const token = "dummy-auth-token";
-        Cookies.set("authToken", token, { secure: true });
-        setUser({ email, token });
-      } else {
-        throw new Error("Invalid credentials");
-      }
+    try {
+      // Replace with your actual API endpoint
+      const response = await axios.post(`${base_url}user/login`, {
+        email,
+        password,
+      });
+
+      const { token } = response.data; // Extract token from the response
+
+      // Store the token in a cookie
+      Cookies.set("authToken", token, { secure: true });
+
+      // Optionally, set additional user information in the state
+      setUser({ email, token });
+
+      // Redirect to the home page after login
+      router.push("/");
     } catch (error) {
-      console.error("Login failed:", error.message);
-      setError(error.message);
+      console.error("Login failed:", error.response?.data || error.message);
+      setError(error.response?.data?.message || "Login failed");
     } finally {
       setLoading(false);
     }
@@ -40,7 +51,8 @@ const useAuth = () => {
   useEffect(() => {
     const token = Cookies.get("authToken");
     if (token) {
-      setUser({ email: "test@user.com", token });
+      // Optionally, decode token or fetch user info from the server
+      setUser({ email: "retrieved_email@example.com", token });
     }
   }, []);
 

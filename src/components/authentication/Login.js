@@ -36,7 +36,7 @@ const Login = () => {
       <LeftImage />
       <section className="w-full md:w-1/2 flex flex-col space-y-4 justify-center items-center">
         <h1 className="font-bold text-xl">Log In</h1>
-        <section>
+        <section className="w-1/2 md:w-3/4 pt-4">
           <form
             className="flex flex-col space-y-2 border border-gray-200 p-4"
             onSubmit={handleSubmit(onSubmit)}
