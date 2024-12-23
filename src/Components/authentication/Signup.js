@@ -17,24 +17,19 @@ const Signup = () => {
   } = useForm();
   const router = useRouter();
   const [error, setError] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   const onSubmit = async (data) => {
-    //http://api.dev.tamaduni.africa:3100/user/register
-    //   {
-    //     "email": "eddie@gmail.com",
-    //     "password": "Test.1234%",
-    //     "confirmPassword": "Test.1234%",
-    //     "firstName": "Demo",
-    //     "lastName": "Eddie"
-    // }
-
+    setLoading(true);
     try {
       const response = await axios.post(base_url + "user/signup", data);
       toast.success("Account created successfully. Please login to continue");
       router.push("/auth/login");
       console.log(response.data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
       setError(error.response.data.error);
+      setLoading(false);
     }
   };
   return (
@@ -124,9 +119,18 @@ const Signup = () => {
               <input type="checkbox" id="remember" {...register("remember")} />
               <label htmlFor="remember">Remember me</label>
             </div>
-            <button className="w-full bg-black text-white rounded-md py-2 px-4 hover:bg-gray-800 transition">
-              Sign Up
+            <button
+              className={`${
+                loading
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-black text-white"
+              } text-white rounded-md p-2`}
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? "Loading..." : "Sign Up"}
             </button>
+
             {error && <span className="text-red-500 text-sm">{error}</span>}
             <Link className="underline" href="/auth/login" passHref>
               Have an account?

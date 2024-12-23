@@ -6,6 +6,7 @@ import LeftImage from "./LeftImage";
 import { useForm } from "react-hook-form";
 import useAuth from "@/components/authentication/useAuth";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const {
@@ -78,13 +79,17 @@ const Login = () => {
               </span>
             )}
             <button
+              className={`${
+                loading
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-black text-white"
+              } text-white rounded-md p-2`}
+              type="submit"
               disabled={loading}
-              className={`w-full bg-black text-white rounded-md py-2 px-4 hover:bg-gray-800 transition ${
-                loading ? "opacity-50 cursor-not-allowed" : ""
-              }`}
             >
               {loading ? "Logging in..." : "Log In"}
             </button>
+
             <button
               type="button"
               onClick={fillTestCredentials}
