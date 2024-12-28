@@ -17,7 +17,6 @@ const useAuth = () => {
     setError(null);
 
     try {
-      // Replace with your actual API endpoint
       const response = await axios.post(`${base_url}user/login`, {
         email,
         password,
@@ -28,11 +27,9 @@ const useAuth = () => {
       // Store the token in a cookie
       Cookies.set("authToken", token, { secure: true });
 
-      // Optionally, set additional user information in the state
       setUser({ email, token });
 
-      // Redirect to the home page after login
-      router.push("/");
+      // router.push("/");
     } catch (error) {
       console.error("Login failed:", error.response?.data || error.message);
       setError(error.response?.data?.message || "Login failed");

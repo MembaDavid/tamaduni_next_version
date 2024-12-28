@@ -15,13 +15,15 @@ const Login = () => {
     setValue,
     formState: { errors },
   } = useForm();
-  const { login, loading, error } = useAuth();
+  const { login, loading, error, user } = useAuth();
 
   const router = useRouter();
 
   const onSubmit = async (data) => {
     await login(data.email, data.password);
-    if (!error) {
+    console.log("user", user);
+    console.log("error", error);
+    if (!error && user) {
       router.push("/");
     } else {
       console.error("Login failed:", error);
@@ -30,7 +32,7 @@ const Login = () => {
 
   const fillTestCredentials = () => {
     setValue("email", "test@user.com"); // Set the test email
-    setValue("password", "password123"); // Set the test password
+    setValue("password", "Qwerty1234."); // Set the test password
   };
   return (
     <div className="h-screen w-full flex">
