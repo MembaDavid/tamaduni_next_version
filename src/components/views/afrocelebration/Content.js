@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { FaGlobe, FaMapMarkerAlt, FaGalacticRepublic } from "react-icons/fa";
+import { base_url } from "@/hooks/urls";
+import axios from "axios";
+import { useEffect } from "react";
 
 // Dynamic imports with SSR disabled
 const List = dynamic(() => import("./list/List"), { ssr: false });
@@ -11,6 +14,40 @@ const Map = dynamic(() => import("./Map"), { ssr: false });
 
 const ContentSlider = () => {
   const [selectedTab, setSelectedTab] = useState("gallery");
+  const [craftprojectsandcreations, setCraftProjectsAndCreations] = useState(
+    []
+  );
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${base_url}afrocelebration/search`);
+        setCraftProjectsAndCreations(
+          response.data.craftprojectsandcreations || []
+        );
+        console.log("data", response.data);
+        setIsError(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (isError) {
+    return <p>Error loading data!</p>;
+  }
 
   const handleTabClick = (tab) => {
     setSelectedTab(tab);
