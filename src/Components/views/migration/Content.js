@@ -28,7 +28,7 @@ const MigrationContent = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures this runs only on mount
+  }, []);
 
   if (isLoading) {
     return <p>Loading...</p>;
