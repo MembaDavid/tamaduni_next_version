@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 // import useAuth from "@/components/authentication";
 import useAuth from "./useAuth";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const {
@@ -16,6 +17,7 @@ const Login = () => {
     setValue,
     formState: { errors },
   } = useForm();
+<<<<<<< HEAD
   const { login, loading, error } = useAuth();
   const router = useRouter();
 
@@ -30,12 +32,31 @@ const Login = () => {
       }
     } catch (err) {
       console.error("Unexpected error:", err.message);
+=======
+  const { login, loading, error, user } = useAuth();
+
+  const router = useRouter();
+
+  const onSubmit = async (data) => {
+    await login(data.email, data.password);
+    console.log("user", user);
+    console.log("error", error);
+    if (!error && user) {
+      router.push("/");
+    } else {
+      console.error("Login failed:", error);
+>>>>>>> tamaduni
     }
   };
 
   const fillTestCredentials = () => {
+<<<<<<< HEAD
     setValue("email", "test@user.com");
     setValue("password", "password123");
+=======
+    setValue("email", "test@user.com"); // Set the test email
+    setValue("password", "Qwerty1234."); // Set the test password
+>>>>>>> tamaduni
   };
 
   return (
@@ -43,7 +64,7 @@ const Login = () => {
       <LeftImage />
       <section className="w-full md:w-1/2 flex flex-col space-y-4 justify-center items-center">
         <h1 className="font-bold text-xl">Log In</h1>
-        <section>
+        <section className="w-1/2 md:w-3/4 pt-4">
           <form
             className="flex flex-col space-y-2 border border-gray-200 p-4"
             onSubmit={handleSubmit(onSubmit)}
@@ -87,14 +108,22 @@ const Login = () => {
               </span>
             )}
             <button
+              className={`${
+                loading
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-black text-white"
+              } text-white rounded-md p-2`}
+              type="submit"
               disabled={loading}
-              className={`w-full bg-black text-white rounded-md py-2 px-4 hover:bg-gray-800 transition ${
-                loading ? "opacity-50 cursor-not-allowed" : ""
-              }`}
             >
               {loading ? "Logging in..." : "Log In"}
             </button>
+<<<<<<< HEAD
             {/* <button
+=======
+
+            <button
+>>>>>>> tamaduni
               type="button"
               onClick={fillTestCredentials}
               className="w-full bg-gray-200 text-black rounded-md py-2 px-4 hover:bg-gray-300 transition"

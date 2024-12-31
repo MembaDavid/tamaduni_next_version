@@ -4,6 +4,10 @@ import React from "react";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import LeftImage from "./LeftImage";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { base_url } from "@/hooks/urls";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const Signup = () => {
   const {
@@ -11,6 +15,7 @@ const Signup = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+<<<<<<< HEAD
 
   const BASE_URL = "http://api.dev.tamaduni.africa:3100/";
   const USER_URL = "user/";
@@ -36,6 +41,23 @@ const Signup = () => {
       // Optionally, redirect or show a success message
     } catch (error) {
       console.error("Error submitting the form:", error);
+=======
+  const router = useRouter();
+  const [error, setError] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const onSubmit = async (data) => {
+    setLoading(true);
+    try {
+      const response = await axios.post(base_url + "user/signup", data);
+      toast.success("Account created successfully. Please login to continue");
+      router.push("/auth/login");
+      console.log(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setError(error.response.data.error);
+      setLoading(false);
+>>>>>>> tamaduni
     }
   };
   
@@ -45,11 +67,12 @@ const Signup = () => {
       <LeftImage />
       <section className="w-full md:w-1/2 flex flex-col space-y-4 justify-center items-center">
         <h1 className="font-bold text-xl">Sign Up</h1>
-        <section>
+        <section className="w-full md:w-3/4 pt-4">
           <form
             className="flex flex-col space-y-2 border border-gray-200 p-4"
             onSubmit={handleSubmit(onSubmit)}
           >
+<<<<<<< HEAD
             <label>First Name</label>
             <input
               className="rounded-md p-2 border border-gray-200"
@@ -84,6 +107,8 @@ const Signup = () => {
             )}
 
             <label>Email</label>
+=======
+>>>>>>> tamaduni
             <input
               className="rounded-md p-2 border border-gray-200"
               type="email"
@@ -101,8 +126,37 @@ const Signup = () => {
                 {errors.email.message}
               </span>
             )}
+<<<<<<< HEAD
 
             <label>Password</label>
+=======
+            <input
+              type="text"
+              placeholder="First Name"
+              className="rounded-md p-2 border border-gray-200"
+              {...register("firstName", {
+                required: "First Name is required",
+              })}
+            />
+            {errors.firstName && (
+              <span className="text-red-500 text-sm">
+                {errors.firstName.message}
+              </span>
+            )}
+            <input
+              type="text"
+              placeholder="Last Name"
+              className="rounded-md p-2 border border-gray-200"
+              {...register("lastName", {
+                required: "Last Name is required",
+              })}
+            />
+            {errors.lastName && (
+              <span className="text-red-500 text-sm">
+                {errors.lastName.message}
+              </span>
+            )}
+>>>>>>> tamaduni
             <input
               type="password"
               placeholder="Password"
@@ -121,6 +175,7 @@ const Signup = () => {
                 {errors.password.message}
               </span>
             )}
+<<<<<<< HEAD
 
             <label>Confirm Password</label>
             <input
@@ -142,22 +197,51 @@ const Signup = () => {
               </span>
             )}
 
+=======
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              className="rounded-md p-2 border border-gray-200"
+              {...register("confirmPassword", {
+                required: "Confirm Password is required",
+              })}
+            />
+            {errors.confirmPassword && (
+              <span className="text-red-500 text-sm">
+                {errors.confirmPassword.message}
+              </span>
+            )}
+>>>>>>> tamaduni
             <div className="flex items-center space-x-2">
               <input type="checkbox" id="remember" {...register("remember")} />
               <label htmlFor="remember">Remember me</label>
             </div>
             <button
+<<<<<<< HEAD
               type="submit"
               className="w-full bg-black text-white rounded-md py-2 px-4 hover:bg-gray-800 transition"
             >
               Sign Up
+=======
+              className={`${
+                loading
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-black text-white"
+              } text-white rounded-md p-2`}
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? "Loading..." : "Sign Up"}
+>>>>>>> tamaduni
             </button>
-            <Link className="underline" href="/auth/forgotpassword" passHref>
-              Forgot Password?
+
+            {error && <span className="text-red-500 text-sm">{error}</span>}
+            <Link className="underline" href="/auth/login" passHref>
+              Have an account?
             </Link>
           </form>
         </section>
-        <section className="flex flex-col items-center space-y-4">
+        {/* <section className="flex flex-col items-center space-y-4">
           <h1 className="font-bold text-xl">Or Log in with</h1>
           <section className="flex flex-col space-y-2">
             <button className="flex items-center justify-center rounded-md py-2 px-4 hover:bg-gray-100 transition">
@@ -180,7 +264,7 @@ const Signup = () => {
               </Link>
             </p>
           </section>
-        </section>
+        </section> */}
       </section>
     </div>
   );
